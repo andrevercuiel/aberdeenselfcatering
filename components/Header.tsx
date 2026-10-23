@@ -9,9 +9,8 @@ export default function Header(){
  const [open,setOpen]=useState(false);
  const pathname=usePathname();
  const activity=activities.find(item=>pathname==="/activities/"+item.slug || pathname.startsWith("/activities/"+item.slug+"/"));
- const isCheckmate=pathname==="/checkmate-coffee-cafe" || pathname.startsWith("/checkmate-coffee-cafe/");
- const logo=isCheckmate?"/media/brand/checkmate-coffee-shop.jpeg":activity?.logo ?? "/media/brand/aberdeen-guest-house-logo.png";
- const logoAlt=isCheckmate?"Checkmate Coffee Shop":activity?"Aberdeen Self Catering — "+activity.title:"Aberdeen Self Catering";
+ const logo=activity?.logo ?? "/media/brand/aberdeen-guest-house-logo.png";
+ const logoAlt=activity?"Aberdeen Self Catering — "+activity.title:"Aberdeen Self Catering";
  return <header className="site-header">
    <div className="nav-wrap">
      <Link href="/" className="logo" aria-label="Aberdeen Self Catering home"><img className="site-logo-image" src={logo} alt={logoAlt} width={104} height={104} /></Link>

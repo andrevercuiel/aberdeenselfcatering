@@ -273,3 +273,9 @@
 .activity-logo-card:focus-visible{outline:3px solid #557747;outline-offset:4px}
 @media(max-width:1000px){.activity-logo-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
 @media(max-width:600px){.activity-logo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px 12px}.activity-logo-card{padding:8px}.activity-logo-card h3{font-size:1rem}}
+
+/* Activities: compact, image-led navigation with accessible descriptions. */
+.activity-logo-card h2{font-size:1.15rem;line-height:1.3;margin:14px 0 7px}
+.activity-logo-card p{font-size:.88rem;line-height:1.45;margin:0 0 12px;color:#535b4d;flex:1}
+.activity-logo-card span{font-weight:700;margin:5px 0 2px}
+@media(max-width:600px){.activity-logo-card h2{font-size:1rem}.activity-logo-card p{font-size:.8rem;line-height:1.4}}

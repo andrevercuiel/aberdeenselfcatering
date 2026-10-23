@@ -1,0 +1,54 @@
+name: Import Aberdeen Self Catering website
+
+on:
+  push:
+    paths:
+      - '.github/workflows/import-asc.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  import-site:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the dedicated Aberdeen Self Catering repository
+        uses: actions/checkout@11bd71901bbe5b163cebe1f8bca7a9544f2b1510
+        with:
+          persist-credentials: true
+
+      - name: Retrieve the exact existing website source
+        run: |
+          set -euo pipefail
+          git clone --depth 1 --filter=blob:none https://github.com/andrevercuiel/visitaberdeen.git /tmp/asc-source
+          actual="$(git -C /tmp/asc-source rev-parse HEAD)"
+          expected="a1c554b121c3971900654c74545f98c73e5d9190"
+          if [ "$actual" != "$expected" ]; then
+            echo "::error::Source changed since inspection: $actual. Review before importing."
+            exit 1
+          fi
+          test -f /tmp/asc-source/aberdeen-self-catering/package.json
+          test -d /tmp/asc-source/aberdeen-self-catering/public/media
+          cp -a /tmp/asc-source/aberdeen-self-catering/. ./
+
+      - name: Commit the independent website
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Source already matches."
+          else
+            git commit -m "Import independent Aberdeen Self Catering Next.js website"
+            git push origin HEAD:main
+          fi
+
+      - name: Verify imported application
+        run: |
+          test -f package.json
+          test -f app/activities/page.tsx
+          test -f app/activities/moonwalk/page.tsx
+          test -f public/media/full-moon-walk-sunrise-hikers.webp
+          echo "Aberdeen Self Catering source transfer verified."

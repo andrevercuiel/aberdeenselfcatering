@@ -1,0 +1,64 @@
+import Link from "next/link";
+import Image from "next/image";
+import GuestRatings from "@/components/GuestRatings";
+import OutdoorSlideshow from "@/components/OutdoorSlideshow";
+import {pageMetadata} from "@/lib/seo";
+import {BOOKING_URL,stays,cafePhotos,activityPhotos} from "@/lib/content";
+
+export const metadata=pageMetadata({
+ title:"Aberdeen Self Catering | Accommodation in Aberdeen, Eastern Cape",
+ description:"Self-catering cottages and biker-friendly accommodation in Aberdeen, Eastern Cape. Explore accommodation, Checkmate Café and Karoo activities.",
+ path:"/",
+ image:"/media/2023/03/20230308_154512-scaled.webp"
+});
+
+export default function Home(){
+ return <main className="simple-home">
+  <section id="welcome" className="simple-home-intro">
+   <div className="simple-home-wrap simple-home-intro-grid">
+    <div className="simple-home-intro-copy">
+     <p className="simple-home-overline">Aberdeen · Eastern Cape · Karoo</p>
+     <h1>Aberdeen Self Catering</h1>
+     <p className="simple-home-lead">Self-catering cottages and biker-friendly accommodation in historic Aberdeen.</p>
+     <p className="simple-home-description">Enjoy a peaceful Karoo stay with welcoming hospitality, a swimming pool, braai facilities and an on-site café.</p>
+     <div className="simple-home-buttons">
+      <a className="simple-home-button simple-home-button-primary" href={BOOKING_URL} target="_blank" rel="noopener noreferrer">Check availability ↗</a>
+      <Link className="simple-home-button simple-home-button-secondary" href="/contact-us">Contact us</Link>
+     </div>
+    </div>
+    <div className="simple-home-photo-frame">
+    <Image className="simple-home-main-photo" src="/media/2023/03/20230308_154512-scaled.webp" alt="Aberdeen Self Catering garden and Karoo accommodation" width={1520} height={960} priority sizes="(max-width: 700px) 100vw, 50vw"/>
+     <Image className="simple-home-distance-sign" src="/media/aberdeen-distance-signpost.webp" alt="Karoo signpost showing distances from Aberdeen: 55 km from Graaff-Reinet, 112 km from Willowmore, 280 km from George and 150 km from Beaufort West" width={202} height={360} priority sizes="(max-width: 700px) 118px, 168px"/>
+    </div>
+   </div>
+  </section>
+  <GuestRatings/>
+  <section className="simple-home-choices simple-home-wrap" aria-label="Explore Aberdeen Self Catering">
+   <article className="simple-home-choice">
+    <Link href="/accommodation" className="simple-home-choice-photo" aria-label="Explore accommodation"><Image src={stays[0].images[0]} alt="Self-catering cottage at Aberdeen Self Catering" loading="lazy" width={1200} height={780} sizes="(max-width: 700px) 100vw, 33vw"/></Link>
+    <div className="simple-home-choice-body">
+     <h2><Link href="/accommodation">Accommodation</Link></h2>
+     <p>Explore our cottages and accommodation for motorcycle travellers.</p>
+     <Link className="simple-home-choice-link" href="/accommodation">View accommodation <span aria-hidden="true">→</span></Link>
+    </div>
+   </article>
+   <article className="simple-home-choice">
+    <Link href="/checkmate-coffee-cafe" className="simple-home-choice-photo" aria-label="Explore Checkmate Café"><Image src={cafePhotos[0]} alt="Checkmate Coffee Café at Aberdeen Self Catering" loading="lazy" width={1200} height={780} sizes="(max-width: 700px) 100vw, 33vw"/></Link>
+    <div className="simple-home-choice-body">
+     <h2><Link href="/checkmate-coffee-cafe">Checkmate Café</Link></h2>
+     <p>Enjoy coffee, breakfast and friendly Karoo hospitality in a relaxed setting.</p>
+     <Link className="simple-home-choice-link" href="/checkmate-coffee-cafe">Explore Checkmate Café <span aria-hidden="true">→</span></Link>
+    </div>
+   </article>
+   <article className="simple-home-choice">
+    <Link href="/activities" className="simple-home-choice-photo" aria-label="Explore activities"><Image src={activityPhotos[2]} alt="Hiking and outdoor activities in the Karoo near Aberdeen" loading="lazy" width={1200} height={780} sizes="(max-width: 700px) 100vw, 33vw"/></Link>
+    <div className="simple-home-choice-body">
+     <h2><Link href="/activities">Activities</Link></h2>
+     <p>Discover the Full Moon Walk, hiking, cycling and other Karoo experiences.</p>
+     <Link className="simple-home-choice-link" href="/activities">See things to do <span aria-hidden="true">→</span></Link>
+    </div>
+   </article>
+  </section>
+  <OutdoorSlideshow/>
+ </main>;
+}

@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import JsonLd from "@/components/JsonLd";
 import {WHATSAPP_URL} from "@/lib/content";
 import {DEFAULT_IMAGE,SITE_URL,siteGraph} from "@/lib/seo";
+import {Analytics} from "@vercel/analytics/next";
 const published=process.env.SITE_LAUNCHED==="true";
 export const metadata:Metadata={
  metadataBase:new URL(SITE_URL),
@@ -17,5 +18,5 @@ export const metadata:Metadata={
  formatDetection:{telephone:false,email:false,address:false}
 };
 export default function RootLayout({children}:{children:React.ReactNode}){
- return <html lang="en-ZA"><body><JsonLd data={siteGraph}/><Header/>{children}<Footer/><a className="whatsapp-float" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Aberdeen Self Catering">✆ <span>WhatsApp</span></a></body></html>;
+ return <html lang="en-ZA"><body><JsonLd data={siteGraph}/><Header/>{children}<Footer/><a className="whatsapp-float" href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" aria-label="WhatsApp Aberdeen Self Catering">✆ <span>WhatsApp</span></a><Analytics/></body></html>;
 }

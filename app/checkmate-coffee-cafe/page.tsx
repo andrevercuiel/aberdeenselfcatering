@@ -29,8 +29,18 @@ const menus = [
         "description": "2 toast, 2 eggs, 2 rashers bacon, fried tomato, cheese Russian, hash brown, onion rings or mushrooms. Filter coffee or 500ml Cappy juice."
       },
       {
-        "name": "Extra chips (small / medium / large)",
-        "price": "R25 / R35 / R45",
+        "name": "Extra chips — Small",
+        "price": "R25",
+        "description": ""
+      },
+      {
+        "name": "Extra chips — Medium",
+        "price": "R35",
+        "description": ""
+      },
+      {
+        "name": "Extra chips — Large",
+        "price": "R45",
         "description": ""
       },
       {
@@ -156,8 +166,18 @@ const menus = [
         "description": "Chicken curry or chicken mushroom"
       },
       {
-        "name": "Cheese Russian & chips (small / medium / large)",
-        "price": "R48 / R58 / R68",
+        "name": "Cheese Russian & chips — Small",
+        "price": "R48",
+        "description": ""
+      },
+      {
+        "name": "Cheese Russian & chips — Medium",
+        "price": "R58",
+        "description": ""
+      },
+      {
+        "name": "Cheese Russian & chips — Large",
+        "price": "R68",
         "description": ""
       },
       {
@@ -181,8 +201,13 @@ const menus = [
         "description": ""
       },
       {
-        "name": "Dagwood (beef or chicken), single / double",
-        "price": "R115 / R145",
+        "name": "Dagwood (beef or chicken) — Single",
+        "price": "R115",
+        "description": "Bread burger with medium chips"
+      },
+      {
+        "name": "Dagwood (beef or chicken) — Double",
+        "price": "R145",
         "description": "Bread burger with medium chips"
       },
       {
@@ -201,8 +226,18 @@ const menus = [
         "description": ""
       },
       {
-        "name": "Extra chips (small / medium / large)",
-        "price": "R25 / R35 / R45",
+        "name": "Extra chips — Small",
+        "price": "R25",
+        "description": ""
+      },
+      {
+        "name": "Extra chips — Medium",
+        "price": "R35",
+        "description": ""
+      },
+      {
+        "name": "Extra chips — Large",
+        "price": "R45",
         "description": ""
       },
       {
@@ -494,7 +529,7 @@ const menus = [
 export default function Cafe(){return <main><JsonLd data={cafeSchema(cafePhotos[0])}/><Breadcrumbs items={[{label:"Home",href:"/"},{label:"Checkmate Coffee Café",href:"/checkmate-coffee-cafe"}]}/>
  <section className="hero"><Image src="/media/brand/checkmate-coffee-shop.jpeg" alt="Checkmate Coffee Shop wooden chessboard and coffee logo" fill priority sizes="100vw" style={{objectFit:"contain",background:"#2b1b13"}}/><div className="container"><p className="kicker">Eat · Meet · Relax</p><h1>Checkmate Coffee Shop</h1><p className="intro-text">Good coffee, hearty breakfasts and time to slow down in the heart of Aberdeen.</p><div className="actions"><a href="#menu" className="btn btn-sand">Explore the menu ↓</a><a href="https://wa.me/27827990788" target="_blank" rel="noopener noreferrer" className="btn btn-outline">Enquire on WhatsApp ↗</a></div></div></section>
  <section className="section"><div className="container two-col"><div><p className="kicker">Karoo hospitality</p><h2>More than a coffee stop</h2><p className="lede">Part of the Aberdeen Self Catering experience, Checkmate Coffee Café is a friendly place for overnight guests, bikers, local residents and travellers to meet.</p><p>Enjoy coffee, breakfast and conversation after a journey through the Karoo. Ask our team about chess, informal games and upcoming café activities.</p></div><Image src={cafePhotos[1]} alt="Checkmate Coffee Café setting in Aberdeen" loading="lazy" width={1200} height={800} sizes="(max-width: 700px) 100vw, 50vw"/></div></section>
- <section id="menu" className="section section-soft"><div className="container"><p className="kicker">Something delicious</p><h2>Checkmate Café menu</h2><p className="lede">Browse the menu below, and contact Checkmate Café for current availability and prices.</p><nav aria-label="Menu categories" style={{display:"flex",flexWrap:"wrap",gap:10,marginBottom:24}}>{menus.map((menu,i)=><a key={menu.title} href={"#checkmate-menu-"+i} style={{background:"#ffbf00",color:"#24170e",border:"1px solid #8c290f",borderRadius:8,padding:"10px 14px",fontWeight:700}}>{menu.title}</a>)}</nav><div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(min(100%, 340px),1fr))",alignItems:"start",gap:24}}>{menus.map((menu,i)=><article key={menu.title} id={"checkmate-menu-"+i} style={{minWidth:0,scrollMarginTop:100,background:"#ffbf00",color:"#21160d",padding:"clamp(14px, 2.5vw, 24px)",border:"1px solid #74451b",borderRadius:6,fontFamily:"Georgia, serif"}}><div style={{position:"relative",aspectRatio:"4.2 / 1",marginBottom:18,border:"3px solid #8f190d",background:"#2b1b13"}}><Image src="/media/brand/checkmate-coffee-shop.jpeg" alt="Checkmate Coffee Shop logo" fill sizes="(max-width: 700px) 100vw, 50vw" style={{objectFit:"contain"}}/></div><h3 style={{fontFamily:"Georgia, serif",color:"#21160d",fontSize:"clamp(24px, 4vw, 34px)",lineHeight:1.15,border:"2px solid #a42c12",borderRadius:6,padding:"8px 12px",margin:"0 0 12px"}}>{menu.title}</h3>{menu.note&&<p style={{color:"#4b240e",fontWeight:700,margin:"0 0 12px"}}>{menu.note}</p>}<dl style={{margin:0}}>{menu.items.map(item=><div key={item.name} style={{padding:"11px 0",borderBottom:"1px solid rgba(100,55,0,.25)"}}><div style={{display:"grid",gridTemplateColumns:"minmax(0,1fr) auto",gap:12,alignItems:"baseline"}}><dt style={{fontWeight:600,overflowWrap:"anywhere"}}>{item.name}</dt><dd style={{margin:0,fontWeight:700,textAlign:"right",whiteSpace:"nowrap"}}>{item.price}</dd></div>{item.description&&<dd style={{margin:"4px 0 0",fontSize:"0.92em",lineHeight:1.45,color:"#38220f"}}>{item.description}</dd>}</div>)}</dl></article>)}</div></div></section>
+ <section id="menu" className="section section-soft"><div className="container"><p className="kicker">Something delicious</p><h2>Checkmate Café menu</h2><p className="lede">Browse the menu below, and contact Checkmate Café for current availability and prices.</p><nav aria-label="Menu categories" style={{display:"flex",flexWrap:"wrap",gap:10,marginBottom:24,fontFamily:"Arial, Helvetica, sans-serif"}}>{menus.map((menu,i)=><a key={menu.title} href={"#checkmate-menu-"+i} style={{background:"#ffbf00",color:"#21160d",border:"1px solid #8c290f",borderRadius:6,padding:"10px 14px",fontFamily:"inherit",fontSize:16,fontWeight:700,lineHeight:1.4}}>{menu.title}</a>)}</nav><div style={{display:"grid",gridTemplateColumns:"repeat(auto-fit,minmax(min(100%, 440px),1fr))",alignItems:"start",gap:24}}>{menus.map((menu,i)=><article key={menu.title} id={"checkmate-menu-"+i} style={{minWidth:0,scrollMarginTop:100,background:"#ffbf00",color:"#21160d",padding:"clamp(14px, 2vw, 24px)",border:"1px solid #74451b",borderRadius:6,fontFamily:"Arial, Helvetica, sans-serif",fontSize:16,lineHeight:1.5}}><div style={{position:"relative",aspectRatio:"4.2 / 1",marginBottom:18,border:"3px solid #8f190d",background:"#2b1b13"}}><Image src="/media/brand/checkmate-coffee-shop.jpeg" alt="Checkmate Coffee Shop logo" fill sizes="(max-width: 700px) 100vw, 50vw" style={{objectFit:"contain"}}/></div><h3 style={{fontFamily:"inherit",fontSize:26,fontWeight:700,letterSpacing:0,color:"#21160d",lineHeight:1.25,border:"2px solid #a42c12",borderRadius:6,padding:"8px 12px",margin:"0 0 12px"}}>{menu.title}</h3>{menu.note&&<p style={{fontFamily:"inherit",fontSize:16,lineHeight:1.5,color:"#21160d",fontWeight:400,margin:"0 0 12px"}}>{menu.note}</p>}<dl style={{margin:0,padding:0,fontFamily:"inherit",fontSize:16,lineHeight:1.5}}>{menu.items.map(item=><div key={item.name} style={{display:"grid",gridTemplateColumns:"minmax(0,1fr) 7.5rem",columnGap:12,alignItems:"start",padding:"10px 0",borderBottom:"1px solid rgba(100,55,0,.25)"}}><dt style={{margin:0,padding:0,fontFamily:"inherit",fontSize:16,fontWeight:400,lineHeight:1.5,letterSpacing:0,overflowWrap:"break-word"}}>{item.name}</dt><dd style={{margin:0,padding:0,fontFamily:"inherit",fontSize:16,fontWeight:700,lineHeight:1.5,letterSpacing:0,fontVariantNumeric:"tabular-nums",textAlign:"right",whiteSpace:"normal",overflowWrap:"normal"}}>{item.price}</dd>{item.description&&<dd style={{gridColumn:"1 / -1",margin:"4px 0 0",padding:0,fontFamily:"inherit",fontSize:16,fontWeight:400,lineHeight:1.5,color:"#21160d"}}>{item.description}</dd>}</div>)}</dl></article>)}</div></div></section>
  <section className="section"><div className="container"><p className="kicker">Look around</p><h2>Café gallery</h2><p className="lede">A look inside Checkmate Coffee Café.</p><Gallery images={cafePhotos} name="Checkmate Coffee Café"/></div></section>
  <section className="promo"><div className="container promogrid"><div><h2>Meet us in Aberdeen</h2><p className="lede">Check the current opening hours, ask about groups or find your way to Aberdeen Self Catering.</p></div><div className="actions"><a href="https://wa.me/27827990788" target="_blank" rel="noopener noreferrer" className="btn btn-sand">WhatsApp us ↗</a><Link href="/contact-us" className="btn btn-outline">Find us</Link><a href={"mailto:"+EMAIL} className="btn btn-outline">Email café enquiry</a></div></div></section>
  </main>}
